@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,24 +17,30 @@ public class Persona {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", nullable = false)
+    @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "Identificación", nullable = false)
+    @Column(name = "identificacion", nullable = false)
+    @NotEmpty(message = "Identificación es requerida")
     private String identificacion;
 
-    @Column(name = "Nombre")
+    @Column(name = "nombre")
+    @NotEmpty(message = "Nombre es requerido")
     private String nombre;
 
-    @Column(name = "Genero")
+    @Column(name = "genero")
+    @NotEmpty(message = "Género es requerido")
     private String genero;
 
-    @Column(name = "Dirección")
+    @Column(name = "direccion")
+    @NotEmpty(message = "Dirección es requerido")
     private String direccion;
 
-    @Column(name = "Teléfono")
+    @Column(name = "telefono")
+    @NotEmpty(message = "Teléfono es requerido")
     private String telefono;
 
-    @Column(name = "Edad")
+    @Column(name = "edad")
+    @NotNull(message = "Edad es requerida")
     private Integer edad;
 }
