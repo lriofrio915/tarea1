@@ -1,10 +1,10 @@
 package com.luisriofrio.tareaapi.domain;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -12,7 +12,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity(name = "persona")
+@MappedSuperclass
 public class Persona {
 
     @Id
@@ -20,7 +20,7 @@ public class Persona {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "identificacion", nullable = false)
+    @Column(name = "identificacion")
     @NotEmpty(message = "Identificación es requerida")
     private String identificacion;
 

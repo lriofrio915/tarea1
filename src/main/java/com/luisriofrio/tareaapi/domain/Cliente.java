@@ -1,10 +1,7 @@
 package com.luisriofrio.tareaapi.domain;
 
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -26,7 +23,7 @@ public class Cliente extends Persona {
     @NotNull(message = "Estado es requerido")
     private Boolean estado;
 
-    @OneToMany(mappedBy = "cliente")
-    private List<Cuenta> cuentas;
+    // @OneToMany(mappedBy = "cliente")
+    // private List<Cuenta> cuentas;
 
 }
